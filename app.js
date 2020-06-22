@@ -10,6 +10,9 @@ const app = express();
 // Register a middleware to handle the body parameters as URL Encoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Register a middleware to allow access to public folder
+app.use(express.static(path.join(rootDir, 'public')));
+
 // App middlewares
 app.use('/admin', adminRouter);
 app.use(adminShop);
